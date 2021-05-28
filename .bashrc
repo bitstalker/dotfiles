@@ -62,7 +62,7 @@ gpgencrypt() {
 }
 
 gpgdecrypt() {
-        output=$(echo "${1}" | rev | cut -c16- | rev)
+	output=${1}.dec
         gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
 
