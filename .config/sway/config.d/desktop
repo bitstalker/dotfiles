@@ -1,0 +1,21 @@
+# monitor configuration
+output HDMI-A-1 pos 0 0 res 1920x1080@60Hz
+output DVI-D-1 pos 1920 0 res 1920x1080@120Hz
+
+# mouse configuration
+input "type:mouse" {
+    pointer_accel 0
+}
+
+# keyboard configuration 
+input "type:keyboard" { 
+        xkb_layout de
+        xkb_variant nodeadkeys
+        xkb_options grp:alt_shift_toggle
+}
+
+# multimedia keys
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86Calculator exec pactl set-source-mute @DEFAULT_SOURCE@ toggle

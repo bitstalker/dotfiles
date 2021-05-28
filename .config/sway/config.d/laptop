@@ -1,0 +1,32 @@
+# mouse configuration
+input "type:mouse" {
+    pointer_accel 0
+}
+
+# keyboard configuration 
+input "type:keyboard" { 
+        xkb_layout de
+        xkb_variant nodeadkeys
+        xkb_options grp:alt_shift_toggle
+}
+
+# touchpad configuration
+input "type:touchpad" {
+    dwt enabled
+    tap disabled
+    natural_scroll disabled
+    middle_emulation enabled
+}
+
+# multimedia keys
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous

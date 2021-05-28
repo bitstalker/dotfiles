@@ -1,0 +1,67 @@
+[global]
+monitor = 0
+follow = mouse
+#geometry = "350x60-20+48"
+geometry = "0x0-2+26"
+indicate_hidden = yes
+shrink = no
+separator_height = 0
+padding = 32
+horizontal_padding = 32
+frame_width = 2
+sort = no
+idle_threshold = 120
+font = hack 10
+line_height = 4
+markup = full
+format = %s\n%b
+alignment = left
+show_age_threshold = 60
+word_wrap = yes
+ignore_newline = no
+stack_duplicates = false
+hide_duplicate_count = yes
+show_indicators = no
+#icon_position = off
+
+icon_position = left
+icon_path = /usr/share/icons/Numix-Light/scalable/status:/usr/share/icons/Numix-Light/scalable/actions:/usr/share/icons/Numix-Light/scalable/devices
+max_icon_size = 64
+
+sticky_history = yes
+history_length = 20
+browser = /usr/bin/firefox -new-tab
+always_run_script = true
+title = Dunst
+class = Dunst
+
+[shortcuts]
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+grave
+context = ctrl+shift+period
+
+[urgency_low]
+timeout = 4
+background = "#4c566a"
+foreground = "#d8dee9"
+frame_color = "#eceff4"
+
+[urgency_normal]
+timeout = 8
+background = "#4c566a"
+foreground = "#d8dee9"
+frame_color = "#238823"
+
+[urgency_critical]
+timeout = 0
+background = "#bf616a"
+foreground = "#2e3440"
+frame_color = "#d2222d"
+
+[discord]
+appname = "discord"
+summary = "*"
+urgency = critical
+format = ""
+script = ~/.config/dunst/urgent-notification.sh

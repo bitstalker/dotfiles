@@ -1,0 +1,5 @@
+[module/vpn-wireguard-wg]
+type = custom/script
+exec = ~/.config/polybar/scripts/vpn-wireguard-wg.sh
+interval = 5
+click-left = ~/polybar-scripts/vpn-wireguard-wg.sh --toggle &

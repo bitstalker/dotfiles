@@ -1,0 +1,6 @@
+[module/spotify]
+type = custom/script
+exec = ~/.config/polybar/scripts/spotify.py -f '{:artist:t25:{artist}:}{:artist: - :}{:t30:{title}:}  %{A1:~/.config/polybar/scripts/spotify.py previous:}  %{A} %{A1:~/.config/polybar/scripts/spotify.py play-pause:} {icon-reversed} %{A} %{A1:~/.config/polybar/scripts/spotify.py next:}  %{A}'
+tail = true
+#format-foreground = ${colors.spotify-green}
+format-foreground = ${colors.aurora-4}

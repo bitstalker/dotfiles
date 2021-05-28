@@ -1,0 +1,4 @@
+[module/vpn-openvpn-status]
+type = custom/script
+exec = $HOME/.config/polybar/vpn-openvpn-status.sh
+interval = 5

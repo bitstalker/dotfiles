@@ -1,0 +1,55 @@
+[global-wm]
+include-file = $HOME/.config/polybar/colors
+
+[bar/foobar]
+width = 100%
+height = 27
+radius = 0
+fixed-center = false
+
+background = ${colors.polarnight-1}
+foreground = ${colors.snowstorm-1}
+
+line-size = 3
+line-color =
+
+border-size = 0
+border-color =
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = "Source Code Pro Semibold:size=10;1"
+font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
+font-2 = "Font Awesome 5 Brands:size=10;1"
+
+tray-position = right
+tray-padding = 1
+tray-background = ${colors.polarnight-3}
+
+;wm-restack = i3
+;override-redirect = true
+pin-workspaces = true
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+modules-left = i3
+modules-center = spotify
+modules-right = pulseaudio eth date
+
+include-file = $HOME/.config/polybar/modules/i3
+include-file = $HOME/.config/polybar/modules/date
+include-file = $HOME/.config/polybar/modules/eth
+include-file = $HOME/.config/polybar/modules/pulseaudio
+include-file = $HOME/.config/polybar/modules/spotify
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0

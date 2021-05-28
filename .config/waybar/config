@@ -1,0 +1,225 @@
+// -*- mode: json -*-
+[
+{
+	"layer": "bottom",
+	"position": "top",
+	"modules-left": [
+		"custom/menu",
+		"custom/separator",
+		"sway/workspaces",
+		"custom/separator",
+		"idle_inhibitor",
+		"custom/separator",
+		"wlr/taskbar",
+		"custom/separator",		
+		"sway/mode"
+	],
+	"modules-center": [
+		"clock"
+		// "custom/spotify"
+	],
+	"modules-right": [
+		"pulseaudio",
+		// "custom/separator",
+		// "battery",
+		// "backlight",
+		"custom/separator",
+		"cpu",
+		"memory",
+		"disk",
+		// "temperature#cpu-desktop",
+		// "temperature#cpu-laptop",
+		// "temperature#gpu-desktop",
+		"custom/separator",
+		"tray",
+		"custom/wireguard",
+		"custom/shutdown",
+	],
+    
+	"backlight": {
+		"interval": 5,
+		"format": "{icon}",
+		"format-alt": "{icon} {percent}%",
+		"format-alt-click": "click-right",
+		"format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑"],
+		"on-scroll-down": "brightnessctl -c backlight set +5%",
+		"on-scroll-up": "brightnessctl -c backlight set 5%-"
+	},
+
+	"battery": {
+		"bat": "BAT0",
+		"interval": 60,
+		"states": {
+			"good": 100,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+
+	"clock": {
+		"format": "{:%H:%M:%S}",
+		"timezone": "Europe/Berlin",
+		"tooltip-format": "{:%a %d %b %H:%M}",
+		"tooltip": true,
+		"interval": 1
+	},
+
+	"cpu": {
+		"interval": 10,
+		"format": " {usage}%",
+		"max-length": 10
+	},
+
+	"custom/separator": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/menu": {
+        "format": "",
+        "on-click": "wofi --show drun"
+    	},
+
+	"custom/shutdown": {
+		"format": "",
+		"on-click": "wlogout -p layer-shell -r 50",
+	},
+
+	"custom/spotify": {
+        	"format": "{icon} {}",
+        	"return-type": "json",
+        	"max-length": 50,
+        	"format-icons": {
+            		"spotify": "",
+            		"default": "🎜"
+        	},
+        	"escape": true,
+        	"exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+	},
+
+	"custom/wireguard": {
+        	"format": "{}<big> 嬨</big>",
+        	"exec": "~/.config/waybar/scripts/wireguard.sh",
+        	// "on-click": "rofi -modi 'WireGuard:~/.config/waybar/wireguard-rofi-waybar/wireguard-rofi.sh' -show WireGuard; pkill -SIGRTMIN+6 waybar",
+        	"signal": 6,
+        	"interval": 60,
+        	"tooltip": false
+	},
+
+	"disk": {
+		"interval": 30,
+		"states": {
+			"warning": 75,
+			"critical": 90
+		},
+		"format": "# {free}",
+		"path": "/"
+	},
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+
+	"memory": {
+		"interval": 30,
+		"states": {
+			"critical": 90
+		},
+		"format": " {used:0.1f}GB"
+	},
+	
+	"pulseaudio": {
+		"format": "{icon} {volume}% {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": "",
+    	"format-source-muted": "",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"scroll-step": 5,
+		"on-click": "pavucontrol"
+	},
+
+	"sway/mode": {
+		"format": "{}"
+	},
+
+	"sway/workspaces": {
+		"disable-scroll": true,
+ 		"all-outputs": true,
+ 		"format": "{name}",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+			"10": []
+        },
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+
+	"temperature#cpu-desktop": {
+		"thermal-zone": 2,
+		"hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input",
+		"critical-threshold": 80,
+		"format-critical": " {temperatureC}°C",
+		"format": " {temperatureC}°C"
+	},
+
+	"temperature#gpu-desktop": {
+		"thermal-zone": 2,
+		"hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input",
+		"critical-threshold": 95,
+		"format-critical": " {temperatureC}°C",
+		"format": " {temperatureC}°C"
+	},
+
+	"temperature#cpu-laptop": {
+		"thermal-zone": 13,
+		"hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
+		"critical-threshold": 80,
+		"format-critical": " {temperatureC}°C",
+		"format": " {temperatureC}°C"
+	},	
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "icon-theme": "Papirus-Dark",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+    }
+}
+]
