@@ -5,7 +5,6 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 ### Wayland environment variables ###
-
 export QT_QPA_PLATFORM=wayland
 # export QT_WAYLAND_FORCE_DPI=physical
 export ECORE_EVAS_ENGINE=wayland_egl
@@ -18,11 +17,13 @@ export XDG_CURRENT_DESKTOP=sway
 export WLR_DRM_NO_MODIFIERS=1
 
 ### ssh-agent / gpg-agent ###
-
 # export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+
+### hardware video acceleration ###
+export VDPAU_DRIVER=va_gl
 
 ### start sway ####
 
