@@ -1,7 +1,6 @@
 [[ $- != *i* ]] && return
 
 # keep unlimited history
-
 export HISTFILESIZE=-1
 export HISTSIZE=-1
 export HISTTIMEFORMAT="[%F %T] "
@@ -9,12 +8,10 @@ export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # PATH
-
-export PATH="$HOME/.local/bin:$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 export EDITOR=vim
 
 # powerline-shell
-
 function _update_ps1() {
     PS1=$(powerline-shell $?)
 }
@@ -24,7 +21,6 @@ if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
 fi
 
 # aliases
-
 alias ls='ls --color=auto'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -38,7 +34,6 @@ alias ll='ls -lh'
 alias ldirs='ls -ldh .*/ */'
 
 # functions
-
 webproxy() {
         ssh $1 -C2qTnN -D 8080
 }
@@ -66,6 +61,5 @@ gpgdecrypt() {
         gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
 
-# other
-
-eval "$(rbenv init -)"
+# ruby/rbenv
+# eval "$(rbenv init -)"
