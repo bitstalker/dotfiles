@@ -1,5 +1,5 @@
 grace=0
-image=$HOME/.config/wallpapers/lock.png
+image=$HOME/.config/wallpapers/wallpaper.jpg
 clock
 datestr=%d-%m-%Y
 font=Hack
