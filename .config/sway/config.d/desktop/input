@@ -1,0 +1,9 @@
+input "type:mouse" {
+    pointer_accel 0
+}
+
+input "type:keyboard" { 
+        xkb_layout de
+        xkb_variant nodeadkeys
+        xkb_options grp:alt_shift_toggle
+}
