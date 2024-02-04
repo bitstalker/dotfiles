@@ -210,7 +210,7 @@
 
 	"temperature#cpu-laptop": {
 		"thermal-zone": 13,
-		"hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
+		"hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
 		"critical-threshold": 80,
 		"format-critical": " {temperatureC}°C",
 		"format": " {temperatureC}°C"
